@@ -1,107 +1,106 @@
-# API Documentation: Player ID Login
+# API Documentation: player_id_login
 
 ## Endpoint
 
--   **URL:** `https://thegioicode.com/api/v2/player_id_login`
--   **Method:** POST
--   **Header:** `Content-Type: application/json`
--   **Body:**
+-   **URL**: `https://thegioicode.com/api/v2/player_id_login`
+-   **Method**: `POST`
+-   **Headers**:
+    -   `Content-Type: application/json`
+    -   `Authorization: Bearer <Apikey>`
+-   **Body**:
     ```json
     {
-        "account_id": "<your_account_id>"
+        "account_id": "your_account_id"
     }
     ```
 
----
-
-## Node.js Example
-
-### Using axios
+## Node.js Example (using axios)
 
 ```javascript
 const axios = require('axios');
 
+const API_URL = 'https://thegioicode.com/api/v2/player_id_login';
+const API_KEY = '<Apikey>'; // Replace with your API key
+
 const data = {
-    account_id: 'your_account_id',
+    account_id: 'your_account_id', // Replace with actual account_id
 };
 
 axios
-    .post('https://thegioicode.com/api/v2/player_id_login', data, {
+    .post(API_URL, data, {
         headers: {
             'Content-Type': 'application/json',
+            Authorization: `Bearer ${API_KEY}`,
         },
     })
     .then((response) => {
-        console.log(response.data);
+        console.log('Response:', response.data);
     })
     .catch((error) => {
-        console.error(error);
+        console.error('Error:', error.response ? error.response.data : error.message);
     });
 ```
 
----
-
-## PHP Example
-
-### Using cURL
+## PHP Example (using cURL)
 
 ```php
 <?php
+$api_url = 'https://thegioicode.com/api/v2/player_id_login';
+$api_key = '<Apikey>'; // Replace with your API key
 
-$url = 'https://thegioicode.com/api/v2/player_id_login';
 $data = [
-    'account_id' => 'your_account_id'
+    'account_id' => 'your_account_id' // Replace with actual account_id
 ];
 
-$ch = curl_init($url);
-curl_setopt($ch, CURLOPT_POST, 1);
-curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+$ch = curl_init($api_url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
 curl_setopt($ch, CURLOPT_HTTPHEADER, [
-    'Content-Type: application/json'
+    'Content-Type: application/json',
+    'Authorization: Bearer ' . $api_key
 ]);
 
 $response = curl_exec($ch);
-if(curl_errno($ch)){
-    echo 'Curl error: ' . curl_error($ch);
+if (curl_errno($ch)) {
+    echo 'Error: ' . curl_error($ch);
 } else {
-    echo $response;
+    echo 'Response: ' . $response;
 }
 curl_close($ch);
 ?>
 ```
 
----
-
-## Python Example
-
-### Using requests
+## Python Example (using requests)
 
 ```python
 import requests
-import json
 
-url = 'https://thegioicode.com/api/v2/player_id_login'
+API_URL = 'https://thegioicode.com/api/v2/player_id_login'
+API_KEY = '<Apikey>'  # Replace with your API key
+
 data = {
-    'account_id': 'your_account_id'
+    'account_id': 'your_account_id'  # Replace with actual account_id
 }
 
 headers = {
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'Authorization': f'Bearer {API_KEY}'
 }
 
-response = requests.post(url, data=json.dumps(data), headers=headers)
+response = requests.post(API_URL, json=data, headers=headers)
 
 if response.status_code == 200:
-    print(response.json())
+    print('Response:', response.json())
 else:
-    print(f"Error: {response.status_code}", response.text)
+    print('Error:', response.status_code, response.text)
 ```
 
----
+## cURL Example
 
-## Notes
-
--   Replace `your_account_id` with the actual account ID.
--   Ensure the `Content-Type` header is set to `application/json`.
--   Check API response for error handling and validation.
+```bash
+curl -X POST https://thegioicode.com/api/v2/player_id_login \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer <Apikey>" \
+-d '{"account_id": "your_account_id"}'
+```
