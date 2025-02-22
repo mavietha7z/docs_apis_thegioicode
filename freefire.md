@@ -1,29 +1,27 @@
-# API Documentation: player_id_login
-
 ## Endpoint
 
 -   **URL**: `https://thegioicode.com/api/v2/player_id_login`
 -   **Method**: `POST`
 -   **Headers**:
     -   `Content-Type: application/json`
-    -   `Authorization: Bearer <Apikey>`
+    -   `Authorization: Bearer <Apikey của bạn>`
 -   **Body**:
     ```json
     {
-        "account_id": "your_account_id"
+        "account_id": "ID người chơi"
     }
     ```
 
-## Node.js Example (using axios)
+## Node.js (Dùng axios)
 
 ```javascript
 const axios = require('axios');
 
 const API_URL = 'https://thegioicode.com/api/v2/player_id_login';
-const API_KEY = '<Apikey>'; // Replace with your API key
+const API_KEY = '<Apikey của bạn>';
 
 const data = {
-    account_id: 'your_account_id', // Replace with actual account_id
+    account_id: 'ID người chơi',
 };
 
 axios
@@ -34,22 +32,22 @@ axios
         },
     })
     .then((response) => {
-        console.log('Response:', response.data);
+        console.log('response: ', response.data);
     })
     .catch((error) => {
-        console.error('Error:', error.response ? error.response.data : error.message);
+        console.log('error: ', error);
     });
 ```
 
-## PHP Example (using cURL)
+## PHP (Dùng cURL)
 
 ```php
 <?php
 $api_url = 'https://thegioicode.com/api/v2/player_id_login';
-$api_key = '<Apikey>'; // Replace with your API key
+$api_key = '<Apikey của bạn>';
 
 $data = [
-    'account_id' => 'your_account_id' // Replace with actual account_id
+    'account_id' => 'ID người chơi'
 ];
 
 $ch = curl_init($api_url);
@@ -63,24 +61,24 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, [
 
 $response = curl_exec($ch);
 if (curl_errno($ch)) {
-    echo 'Error: ' . curl_error($ch);
+    echo 'error: ' . curl_error($ch);
 } else {
-    echo 'Response: ' . $response;
+    echo 'response: ' . $response;
 }
 curl_close($ch);
 ?>
 ```
 
-## Python Example (using requests)
+## Python (Dùng requests)
 
 ```python
 import requests
 
 API_URL = 'https://thegioicode.com/api/v2/player_id_login'
-API_KEY = '<Apikey>'  # Replace with your API key
+API_KEY = '<Apikey của bạn>'
 
 data = {
-    'account_id': 'your_account_id'  # Replace with actual account_id
+    'account_id': 'ID người chơi'
 }
 
 headers = {
@@ -91,16 +89,16 @@ headers = {
 response = requests.post(API_URL, json=data, headers=headers)
 
 if response.status_code == 200:
-    print('Response:', response.json())
+    print('response: ', response.json())
 else:
-    print('Error:', response.status_code, response.text)
+    print('error: ', response.status_code, response.text)
 ```
 
-## cURL Example
+## cURL
 
 ```bash
 curl -X POST https://thegioicode.com/api/v2/player_id_login \
 -H "Content-Type: application/json" \
--H "Authorization: Bearer <Apikey>" \
--d '{"account_id": "your_account_id"}'
+-H "Authorization: Bearer <Apikey của bạn>" \
+-d '{"account_id": "ID người chơi"}'
 ```
