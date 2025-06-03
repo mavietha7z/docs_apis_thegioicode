@@ -12,7 +12,7 @@
     }
     ```
 
-## Node.js (Using axios)
+## Node.js (Use axios)
 
 ```javascript
 const axios = require('axios');
@@ -39,7 +39,7 @@ axios
     });
 ```
 
-## PHP (Using cURL)
+## PHP (Use cURL)
 
 ```php
 <?php
@@ -69,7 +69,7 @@ curl_close($ch);
 ?>
 ```
 
-## Python (Using requests)
+## Python (Use requests)
 
 ```python
 import requests
