@@ -1,6 +1,6 @@
 ## Endpoint
 
--   **URL**: `https://thegioicode.com/api/v2/player_id_login`
+-   **URL**: `https://thegioicode.com/api/v2/garena_login`
 -   **Method**: `POST`
 -   **Headers**:
     -   `Content-Type: application/json`
@@ -8,7 +8,8 @@
 -   **Body**:
     ```json
     {
-        "account_id": "ID người chơi"
+        "username": "<Tài khoản>",
+        "password": "<Mật khẩu>"
     }
     ```
 
@@ -17,11 +18,12 @@
 ```javascript
 const axios = require('axios');
 
-const API_URL = 'https://thegioicode.com/api/v2/player_id_login';
+const API_URL = 'https://thegioicode.com/api/v2/garena_login';
 const API_KEY = '<Apikey của bạn>';
 
 const data = {
-    account_id: 'ID người chơi',
+    username: 'mavietha999',
+    password: 'Mavietha9@',
 };
 
 axios
@@ -43,11 +45,12 @@ axios
 
 ```php
 <?php
-$api_url = 'https://thegioicode.com/api/v2/player_id_login';
+$api_url = 'https://thegioicode.com/api/v2/garena_login';
 $api_key = '<Apikey của bạn>';
 
 $data = [
-    'account_id' => 'ID người chơi'
+    'username' => 'mavietha999',
+    'password' => 'Mavietha9@',
 ];
 
 $ch = curl_init($api_url);
@@ -74,11 +77,12 @@ curl_close($ch);
 ```python
 import requests
 
-API_URL = 'https://thegioicode.com/api/v2/player_id_login'
+API_URL = 'https://thegioicode.com/api/v2/garena_login'
 API_KEY = '<Apikey của bạn>'
 
 data = {
-    'account_id': 'ID người chơi'
+    'username': 'mavietha999',
+    'password': 'Mavietha9@',
 }
 
 headers = {
@@ -97,8 +101,8 @@ else:
 ## cURL
 
 ```bash
-curl -X POST https://thegioicode.com/api/v2/player_id_login \
+curl -X POST https://thegioicode.com/api/v2/garena_login \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <Apikey của bạn>" \
--d '{"account_id": "ID người chơi"}'
+-d '{"username": "mavietha999", "password": "Mavietha9@"}'
 ```
