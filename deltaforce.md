@@ -1,6 +1,6 @@
 ## Endpoint
 
--   **URL**: `https://domain.com/api/v2/garena_login`
+-   **URL**: `https://domain.com/api/v2/deltaforce_login`
 -   **Method**: `POST`
 -   **Headers**:
     -   `Content-Type: application/json`
@@ -8,8 +8,7 @@
 -   **Body**:
     ```json
     {
-        "username": "<Tài khoản>",
-        "password": "<Mật khẩu>"
+        "account_id": "ID người chơi"
     }
     ```
 
@@ -18,12 +17,11 @@
 ```javascript
 const axios = require('axios');
 
-const API_URL = 'https://domain.com/api/v2/garena_login';
+const API_URL = 'https://domain.com/api/v2/deltaforce_login';
 const API_KEY = '<Apikey của bạn>';
 
 const data = {
-    username: 'mavietha999',
-    password: 'Mavietha9@',
+    account_id: 'ID người chơi',
 };
 
 axios
@@ -45,12 +43,11 @@ axios
 
 ```php
 <?php
-$api_url = 'https://domain.com/api/v2/garena_login';
+$api_url = 'https://domain.com/api/v2/deltaforce_login';
 $api_key = '<Apikey của bạn>';
 
 $data = [
-    'username' => 'mavietha999',
-    'password' => 'Mavietha9@',
+    'account_id' => 'ID người chơi'
 ];
 
 $ch = curl_init($api_url);
@@ -77,12 +74,11 @@ curl_close($ch);
 ```python
 import requests
 
-API_URL = 'https://domain.com/api/v2/garena_login'
+API_URL = 'https://domain.com/api/v2/deltaforce_login'
 API_KEY = '<Apikey của bạn>'
 
 data = {
-    'username': 'mavietha999',
-    'password': 'Mavietha9@',
+    'account_id': 'ID người chơi'
 }
 
 headers = {
@@ -101,8 +97,8 @@ else:
 ## cURL
 
 ```bash
-curl -X POST https://domain.com/api/v2/garena_login \
+curl -X POST https://domain.com/api/v2/deltaforce_login \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <Apikey của bạn>" \
--d '{"username": "mavietha999", "password": "Mavietha9@"}'
+-d '{"account_id": "ID người chơi"}'
 ```
